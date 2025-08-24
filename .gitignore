@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.pyc
+evaluation/latest_output_raw.txt
+debug_raw_output.txt

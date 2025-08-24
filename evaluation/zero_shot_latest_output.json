@@ -1,0 +1,55 @@
+{
+  "topic": "Pythagorean Theorem",
+  "grade_level": "8",
+  "learning_objective": "Understand and apply the Pythagorean Theorem to solve problems involving right-angled triangles.",
+  "lesson_summary": "The Pythagorean Theorem describes the relationship between the sides of a right-angled triangle.  It states that the square of the hypotenuse (the longest side) is equal to the sum of the squares of the other two sides (legs or cathetus). This theorem is useful for calculating distances and lengths in various situations.",
+  "key_points": [
+    "In a right-angled triangle, the hypotenuse is the side opposite the right angle.",
+    "The Pythagorean Theorem is a² + b² = c², where a and b are the lengths of the legs, and c is the length of the hypotenuse.",
+    "A right-angled triangle is a triangle with one 90-degree angle."
+  ],
+  "worked_examples": [
+    {
+      "id": 1,
+      "problem": "A right-angled triangle has legs of length 3cm and 4cm. Find the length of the hypotenuse.",
+      "solution_steps": [
+        "Substitute the leg lengths into the Pythagorean Theorem: 3² + 4² = c²",
+        "Calculate the squares: 9 + 16 = c²",
+        "Add the squares and find the square root: c² = 25, so c = 5cm"
+      ],
+      "final_answer": "5cm"
+    }
+  ],
+  "practice_problems": [
+    {
+      "id": 1,
+      "question": "A right-angled triangle has a hypotenuse of 10cm and one leg of 6cm. Find the length of the other leg.",
+      "difficulty": "medium",
+      "hints": [
+        "Rearrange the Pythagorean Theorem to solve for the unknown leg"
+      ],
+      "solution": "8cm"
+    }
+  ],
+  "assessment_quiz": [
+    {
+      "id": 1,
+      "question": "Which equation represents the Pythagorean Theorem?",
+      "options": [
+        "a + b = c",
+        "a² - b² = c²",
+        "a² + b² = c²",
+        "a + b² = c"
+      ],
+      "answer": "c"
+    }
+  ],
+  "follow_up_recommendations": [
+    "Practice more problems with varying difficulty levels.",
+    "Explore real-world applications of the Pythagorean Theorem."
+  ],
+  "references": [
+    "N/A"
+  ],
+  "estimated_time_minutes": 30
+}

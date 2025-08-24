@@ -1,0 +1,77 @@
+{
+  "topic": "Newton's Second Law",
+  "grade_level": "9",
+  "learning_objective": "Understand and apply Newton's Second Law of Motion (F=ma).",
+  "lesson_summary": "Newton's Second Law describes the relationship between force, mass, and acceleration.  It states that the acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass. We'll learn how to calculate force, mass, or acceleration given the other two.",
+  "key_points": [
+    "Newton's Second Law: F = ma (Force = mass x acceleration)",
+    "Force (F) is measured in Newtons (N)",
+    "Mass (m) is measured in kilograms (kg)",
+    "Acceleration (a) is measured in meters per second squared (m/s²)",
+    "Net force: the sum of all forces acting on an object"
+  ],
+  "worked_examples": [
+    {
+      "id": 1,
+      "problem": "A 2 kg object accelerates at 5 m/s². What is the net force acting on it?",
+      "solution_steps": [
+        "Write down the formula: F = ma",
+        "Substitute values: F = 2 kg * 5 m/s²",
+        "Calculate: F = 10 N"
+      ],
+      "final_answer": "10 N"
+    },
+    {
+      "id": 2,
+      "problem": "A 10 N force acts on a 5 kg object. Calculate its acceleration.",
+      "solution_steps": [
+        "Write down the formula: F = ma",
+        "Rearrange the formula to solve for a: a = F/m",
+        "Substitute values: a = 10 N / 5 kg",
+        "Calculate: a = 2 m/s²"
+      ],
+      "final_answer": "2 m/s²"
+    }
+  ],
+  "practice_problems": [
+    {
+      "id": 1,
+      "question": "A 1 kg ball is pushed with a force of 3 N. What is its acceleration?",
+      "difficulty": "easy",
+      "hints": [
+        "Use F = ma"
+      ],
+      "solution": "3 m/s²"
+    },
+    {
+      "id": 2,
+      "question": "A car with a mass of 1000 kg accelerates at 2 m/s². What force is required?",
+      "difficulty": "medium",
+      "hints": [
+        "Use F = ma"
+      ],
+      "solution": "2000 N"
+    }
+  ],
+  "assessment_quiz": [
+    {
+      "id": 1,
+      "question": "Which of the following equations represents Newton's Second Law?",
+      "options": [
+        "A) F = m/a",
+        "B) F = ma",
+        "C) F = a/m",
+        "D) F = m + a"
+      ],
+      "answer": "B) F = ma"
+    }
+  ],
+  "follow_up_recommendations": [
+    "Explore examples of Newton's Second Law in everyday life",
+    "Practice more problems with varying force, mass, and acceleration"
+  ],
+  "references": [
+    "N/A"
+  ],
+  "estimated_time_minutes": 25
+}

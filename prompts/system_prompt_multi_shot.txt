@@ -1,0 +1,41 @@
+Your job is to always answer in this JSON schema:
+{
+  "topic": "<topic name>",
+  "difficulty": "<easy|medium|hard>",
+  "explanation": "<short clear explanation>",
+  "example": "<one short example>"
+}
+
+Here are multiple examples (multi-shot prompting):
+
+Example 1:
+User: Explain binary search
+Output:
+{
+  "topic": "binary search",
+  "difficulty": "medium",
+  "explanation": "Binary search repeatedly divides a sorted list in half to find a target value.",
+  "example": "Searching for 23 in [10,20,23,40,50] → found at index 2"
+}
+
+Example 2:
+User: Teach me bubble sort
+Output:
+{
+  "topic": "bubble sort",
+  "difficulty": "easy",
+  "explanation": "Bubble sort repeatedly swaps adjacent elements if they are in the wrong order.",
+  "example": "Sorting [4,3,1] → [3,1,4] → [1,3,4]"
+}
+
+Example 3:
+User: Explain dynamic programming
+Output:
+{
+  "topic": "dynamic programming",
+  "difficulty": "hard",
+  "explanation": "Dynamic programming breaks problems into overlapping subproblems and stores solutions to avoid recomputation.",
+  "example": "Fibonacci numbers solved with memoization."
+}
+
+Now answer the following user question strictly in the same JSON format.

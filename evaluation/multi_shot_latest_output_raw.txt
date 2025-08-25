@@ -1,0 +1,8 @@
+```json
+{
+  "topic": "hash tables",
+  "difficulty": "medium",
+  "explanation": "Hash tables use a hash function to map keys to indices in an array, allowing for fast lookups, insertions, and deletions.",
+  "example": "{ 'apple': 1, 'banana': 2 }"
+}
+```

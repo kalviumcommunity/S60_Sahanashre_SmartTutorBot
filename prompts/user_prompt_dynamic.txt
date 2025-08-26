@@ -1,0 +1,5 @@
+The student has asked a learning-related question.  
+Please provide a clear, engaging, and adaptive explanation.
+
+User Query: {user_query}  
+Learner Data: {learner_data}

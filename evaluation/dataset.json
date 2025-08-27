@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "user_query": "Explain recursion with a simple analogy.",
+    "learner_data": {"level": "beginner", "preferred_style": "analogy", "subject": "Computer Science"},
+    "expected": "Recursion is like looking into two mirrors facing each other..."
+  },
+  {
+    "id": 2,
+    "user_query": "What is a hash table?",
+    "learner_data": {"level": "intermediate", "preferred_style": "example", "subject": "Computer Science"},
+    "expected": "Hash tables use a hash function to map keys to indices in an array..."
+  },
+  {
+    "id": 3,
+    "user_query": "Explain photosynthesis simply.",
+    "learner_data": {"level": "beginner", "preferred_style": "story", "subject": "Biology"},
+    "expected": "Photosynthesis is like plants cooking their own food using sunlight..."
+  },
+  {
+    "id": 4,
+    "user_query": "What is Newton's third law?",
+    "learner_data": {"level": "school", "preferred_style": "analogy", "subject": "Physics"},
+    "expected": "For every action there is an equal and opposite reaction..."
+  },
+  {
+    "id": 5,
+    "user_query": "Explain supply and demand in economics.",
+    "learner_data": {"level": "college", "preferred_style": "example", "subject": "Economics"},
+    "expected": "If demand goes up but supply stays the same, prices increase..."
+  }
+]

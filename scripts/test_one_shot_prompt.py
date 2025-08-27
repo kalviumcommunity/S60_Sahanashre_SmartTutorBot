@@ -69,7 +69,14 @@ def main():
     user   = read("prompts/user_prompt_one_shot.txt")
 
     prompt = f"{system}\n\n# New Task\n{user}"
-    resp = model.generate_content(prompt)
+    # resp = model.generate_content(prompt)
+
+    resp = model.generate_content(
+    prompt,
+    generation_config=genai.types.GenerationConfig(
+        temperature=0.8  # 🔥 Control randomness
+    )
+)
 
     # Log token usage
     log_usage(resp, tag="one-shot")

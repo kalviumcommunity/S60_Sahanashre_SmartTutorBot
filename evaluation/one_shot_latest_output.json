@@ -1,52 +1,51 @@
 {
   "topic": "Newton's Second Law",
   "grade_level": "9",
-  "learning_objective": "Understand and apply Newton's Second Law of Motion (F=ma).",
-  "lesson_summary": "Newton's Second Law describes the relationship between force, mass, and acceleration.  It states that the acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass. We'll explore how to calculate force, mass, or acceleration given the other two.",
+  "learning_objective": "Understand and apply Newton's Second Law of Motion (F=ma) to solve problems involving force, mass, and acceleration.",
+  "lesson_summary": "Newton's Second Law states that the force acting on an object is equal to its mass times its acceleration.  This means a larger force causes greater acceleration, and a larger mass requires a larger force for the same acceleration. We'll learn how to use this formula to solve problems involving moving objects.",
   "key_points": [
     "Newton's Second Law: F = ma (Force = mass x acceleration)",
     "Force (F) is measured in Newtons (N)",
     "Mass (m) is measured in kilograms (kg)",
     "Acceleration (a) is measured in meters per second squared (m/s²)",
-    "Net force: the overall force acting on an object after considering all forces."
+    "Jargon: Acceleration—the rate at which an object's velocity changes over time."
   ],
   "worked_examples": [
     {
       "id": 1,
-      "problem": "A 2 kg object accelerates at 5 m/s².  What is the net force acting on it?",
+      "problem": "A 10 kg object experiences a net force of 50 N.  What is its acceleration?",
       "solution_steps": [
-        "Identify knowns: m = 2 kg, a = 5 m/s²",
-        "Apply Newton's Second Law: F = ma",
-        "Substitute values: F = (2 kg)(5 m/s²)",
-        "Calculate: F = 10 N"
+        "Write down the formula: F = ma",
+        "Rearrange the formula to solve for acceleration: a = F/m",
+        "Substitute the known values: a = 50 N / 10 kg",
+        "Calculate the acceleration: a = 5 m/s²"
       ],
-      "final_answer": "10 N"
+      "final_answer": "5 m/s²"
     },
     {
       "id": 2,
-      "problem": "A force of 15 N acts on a 3 kg object. What is its acceleration?",
+      "problem": "A 2 kg ball is accelerating at 3 m/s². What is the net force acting on it?",
       "solution_steps": [
-        "Identify knowns: F = 15 N, m = 3 kg",
-        "Rearrange Newton's Second Law: a = F/m",
-        "Substitute values: a = 15 N / 3 kg",
-        "Calculate: a = 5 m/s²"
+        "Write down the formula: F = ma",
+        "Substitute the known values: F = 2 kg * 3 m/s²",
+        "Calculate the force: F = 6 N"
       ],
-      "final_answer": "5 m/s²"
+      "final_answer": "6 N"
     }
   ],
   "practice_problems": [
     {
       "id": 1,
-      "question": "A 10 kg object experiences a net force of 20 N.  Calculate its acceleration.",
+      "question": "A 5 kg cart is pushed with a force of 25 N. What is its acceleration?",
       "difficulty": "medium",
       "hints": [
-        "Use F = ma and solve for 'a'"
+        "Use F = ma; solve for 'a'."
       ],
-      "solution": "2 m/s²"
+      "solution": "5 m/s²"
     },
     {
       "id": 2,
-      "question": "A car with a mass of 1000kg accelerates at 2 m/s². What is the net force acting on the car?",
+      "question": "A 1000 kg car accelerates at 2 m/s². What force is needed?",
       "difficulty": "medium",
       "hints": [
         "Use F = ma"
@@ -68,8 +67,8 @@
     }
   ],
   "follow_up_recommendations": [
-    "Practice more problems with varying force, mass, and acceleration",
-    "Explore examples of Newton's Second Law in everyday life"
+    "Read more about inertia and Newton's other laws",
+    "Practice more problems with varying masses and forces"
   ],
   "references": [
     "N/A"

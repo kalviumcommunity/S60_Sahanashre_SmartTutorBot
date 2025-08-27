@@ -9,3 +9,4 @@ one-shot | prompt:961 cand:748 total:1709
 [one-shot] Tokens → prompt:961 completion:796 total:1757 | temp=0.8 top_p=0.9
 [one-shot] Tokens → prompt:961 completion:738 total:1699 | temp=0.8 top_p=0.9
 [one-shot] Tokens → prompt:961 completion:802 total:1763 | temp=0.8 top_p=0.9 top_k=40
+[one-shot] Tokens → prompt:961 completion:357 total:1318 | temp=0.8 top_p=0.9 top_k=40 stop_sequences=['}']

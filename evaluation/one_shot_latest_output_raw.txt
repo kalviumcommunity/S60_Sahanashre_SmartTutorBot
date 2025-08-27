@@ -1,0 +1,18 @@
+```json
+{
+  "topic": "Newton's Second Law",
+  "grade_level": "9",
+  "learning_objective": "Understand and apply Newton's Second Law of Motion (F=ma) to solve problems involving force, mass, and acceleration.",
+  "lesson_summary": "Newton's Second Law describes the relationship between force, mass, and acceleration.  It states that the acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass. We'll learn how to use the formula F=ma to calculate these quantities.",
+  "key_points": [
+    "Force (F): A push or pull measured in Newtons (N)",
+    "Mass (m): The amount of matter in an object, measured in kilograms (kg)",
+    "Acceleration (a): The rate of change of velocity, measured in meters per second squared (m/s²)",
+    "F=ma: Force equals mass times acceleration"
+  ],
+  "worked_examples": [
+    {
+      "id": 1,
+      "problem": "A 5 kg object experiences a net force of 10 N. What is its acceleration?",
+      "solution_steps": ["Write down the known values: F = 10 N, m = 5 kg", "Use Newton's Second Law: F = ma", "Rearrange the formula to solve for acceleration: a = F/m", "Substitute the values and calculate: a = 10 N / 5 kg = 2 m/s²"],
+      "final_answer": "2 m/s²"

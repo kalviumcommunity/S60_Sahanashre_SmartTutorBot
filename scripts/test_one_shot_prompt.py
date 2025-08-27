@@ -75,13 +75,15 @@ def main():
     top_p = 0.9
     top_k=40       
     tag = "one-shot"
+    stop_sequences=["}"]   
 
     resp = model.generate_content(
         prompt,
         generation_config=genai.types.GenerationConfig(
             temperature=temperature,  # 🔥 Control randomness
             top_p=top_p,               # 🎯 Nucleus sampling
-            top_k=top_k              # 🔥 Top-K sampling
+            top_k=top_k,              # 🔥 Top-K sampling
+            stop_sequences=stop_sequences   # 🔥 stop generation after closing JSON
         )
     )
 
@@ -94,7 +96,7 @@ def main():
             total_tokens  = usage.total_token_count
             msg = (f"[{tag}] Tokens → prompt:{prompt_tokens} "
                    f"completion:{cand_tokens} total:{total_tokens} "
-                   f"| temp={temperature} top_p={top_p} top_k={top_k}")
+                   f"| temp={temperature} top_p={top_p} top_k={top_k} stop_sequences={stop_sequences}")
             print(msg)
 
             os.makedirs("logs", exist_ok=True)

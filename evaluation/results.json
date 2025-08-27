@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "query": "Explain recursion with a simple analogy.",
+    "model_answer": "(Pretend SmartTutorBot answered) → Recursion is like looking into two mirrors facing each other...",
+    "evaluation": {
+      "error": "Could not parse",
+      "raw": "```json\n{\n  \"relevance\": 2,\n  \"style\": 2,\n  \"accuracy\": 2,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"total_score\": 9,\n  \"comments\": \"Good start with the analogy, but needs further explanation to fully explain recursion.  The analogy is accurate but incomplete.\"\n}\n```"
+    }
+  },
+  {
+    "id": 2,
+    "query": "What is a hash table?",
+    "model_answer": "(Pretend SmartTutorBot answered) → Hash tables use a hash function to map keys to indices in an array...",
+    "evaluation": {
+      "error": "Could not parse",
+      "raw": "```json\n{\n  \"relevance\": 2,\n  \"style\": 2,\n  \"accuracy\": 2,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"total_score\": 9,\n  \"comments\": \"Good start, but the explanation is too brief for an intermediate learner.  Adding examples and further details would improve completeness.\"\n}\n```"
+    }
+  },
+  {
+    "id": 3,
+    "query": "Explain photosynthesis simply.",
+    "model_answer": "(Pretend SmartTutorBot answered) → Photosynthesis is like plants cooking their own food using sunlight...",
+    "evaluation": {
+      "error": "Could not parse",
+      "raw": "```json\n{\n  \"relevance\": 2,\n  \"style\": 2,\n  \"accuracy\": 2,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"total_score\": 9,\n  \"comments\": \"The model's output perfectly matches the expected reference in terms of style and accuracy for a beginner's explanation.  However, it is far too brief to be considered complete.  It needs more explanation of the process.\"\n}\n```"
+    }
+  },
+  {
+    "id": 4,
+    "query": "What is Newton's third law?",
+    "model_answer": "(Pretend SmartTutorBot answered) → For every action there is an equal and opposite reaction...",
+    "evaluation": {
+      "error": "Could not parse",
+      "raw": "```json\n{\n  \"relevance\": 2,\n  \"style\": 1,\n  \"accuracy\": 2,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"total_score\": 8,\n  \"comments\": \"The model correctly states Newton's Third Law. However, it lacks the use of analogy as requested by the learner's data.  A more complete answer would include examples.\"\n}\n```"
+    }
+  },
+  {
+    "id": 5,
+    "query": "Explain supply and demand in economics.",
+    "model_answer": "(Pretend SmartTutorBot answered) → If demand goes up but supply stays the same, prices increase...",
+    "evaluation": {
+      "error": "Could not parse",
+      "raw": "```json\n{\n  \"relevance\": 2,\n  \"style\": 1,\n  \"accuracy\": 2,\n  \"completeness\": 1,\n  \"clarity\": 2,\n  \"total_score\": 8,\n  \"comments\": \"The model correctly identifies the relationship between supply, demand, and price. However, it only provides a single example and lacks a comprehensive explanation of the concepts.  More examples and a broader explanation would improve the response.\"\n}\n```"
+    }
+  }
+]

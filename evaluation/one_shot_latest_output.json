@@ -2,72 +2,73 @@
   "topic": "Newton's Second Law",
   "grade_level": "9",
   "learning_objective": "Understand and apply Newton's Second Law of Motion (F=ma) to solve problems involving force, mass, and acceleration.",
-  "lesson_summary": "Newton's Second Law describes the relationship between force, mass, and acceleration.  It states that the force acting on an object is equal to its mass multiplied by its acceleration (F=ma). We'll learn how to use this equation to calculate any of these three variables if we know the other two.",
+  "lesson_summary": "Newton's Second Law describes the relationship between force, mass, and acceleration.  It states that the net force acting on an object is equal to the product of its mass and acceleration. We'll explore how to calculate force, mass, or acceleration given the other two.",
   "key_points": [
-    "Force (F):  A push or pull measured in Newtons (N)",
-    "Mass (m): The amount of matter in an object, measured in kilograms (kg)",
-    "Acceleration (a): The rate of change of velocity, measured in meters per second squared (m/s²)",
-    "F = ma:  Force equals mass times acceleration"
+    "Newton's Second Law: F = ma (Force = mass x acceleration)",
+    "Force (F) is measured in Newtons (N)",
+    "Mass (m) is measured in kilograms (kg)",
+    "Acceleration (a) is measured in meters per second squared (m/s²)",
+    "Net force considers all forces acting on an object; if forces are in opposite directions, subtract them."
   ],
   "worked_examples": [
     {
       "id": 1,
-      "problem": "A 5 kg object experiences a net force of 10 N. What is its acceleration?",
+      "problem": "A 2 kg ball is pushed with a force of 10 N. What is its acceleration?",
       "solution_steps": [
-        "Write down the known values: F = 10 N, m = 5 kg",
+        "Write down the known values: F = 10 N, m = 2 kg",
         "Use Newton's Second Law: F = ma",
-        "Rearrange the equation to solve for acceleration: a = F/m",
-        "Substitute the values and calculate: a = 10 N / 5 kg = 2 m/s²"
+        "Rearrange the formula to solve for acceleration: a = F/m",
+        "Substitute the values and calculate: a = 10 N / 2 kg = 5 m/s²"
       ],
-      "final_answer": "2 m/s²"
+      "final_answer": "5 m/s²"
     },
     {
       "id": 2,
-      "problem": "A 2 kg ball accelerates at 3 m/s². What is the net force acting on it?",
+      "problem": "A 5 kg object accelerates at 3 m/s². What is the net force acting on it?",
       "solution_steps": [
-        "Write down the known values: m = 2 kg, a = 3 m/s²",
+        "Write down the known values: m = 5 kg, a = 3 m/s²",
         "Use Newton's Second Law: F = ma",
-        "Substitute the values and calculate: F = 2 kg * 3 m/s² = 6 N"
+        "Substitute the values and calculate: F = 5 kg * 3 m/s² = 15 N"
       ],
-      "final_answer": "6 N"
+      "final_answer": "15 N"
     }
   ],
   "practice_problems": [
     {
       "id": 1,
-      "question": "A 10 kg cart is pushed with a force of 20 N. Calculate its acceleration.",
+      "question": "A 10 kg box is pushed with a force of 25 N. Calculate its acceleration.",
       "difficulty": "easy",
       "hints": [
         "Use F=ma"
       ],
-      "solution": "2 m/s²"
+      "solution": "2.5 m/s²"
     },
     {
       "id": 2,
-      "question": "A 0.5 kg bird accelerates at 5 m/s². What is the net force acting on it?",
+      "question": "A car with a mass of 1000 kg accelerates at 2 m/s². What is the net force acting on it?",
       "difficulty": "medium",
       "hints": [
-        "Remember the units for force."
+        "Remember the units"
       ],
-      "solution": "2.5 N"
+      "solution": "2000 N"
     }
   ],
   "assessment_quiz": [
     {
       "id": 1,
-      "question": "Which of the following is Newton's Second Law?",
+      "question": "If the mass of an object increases, and the force remains constant, what happens to its acceleration?",
       "options": [
-        "A) F = m/a",
-        "B) F = ma",
-        "C) F = a/m",
-        "D) F = m + a"
+        "A) Increases",
+        "B) Decreases",
+        "C) Stays the same",
+        "D) Becomes zero"
       ],
-      "answer": "B) F = ma"
+      "answer": "B) Decreases"
     }
   ],
   "follow_up_recommendations": [
     "Explore examples of Newton's Second Law in everyday life",
-    "Practice more complex problems involving friction and other forces"
+    "Practice more problems with varying levels of difficulty"
   ],
   "references": [
     "N/A"

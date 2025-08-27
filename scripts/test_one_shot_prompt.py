@@ -69,17 +69,37 @@ def main():
     user   = read("prompts/user_prompt_one_shot.txt")
 
     prompt = f"{system}\n\n# New Task\n{user}"
-    # resp = model.generate_content(prompt)
+
+    # define parameters
+    temperature = 0.8
+    top_p = 0.9
+    tag = "one-shot"
 
     resp = model.generate_content(
-    prompt,
-    generation_config=genai.types.GenerationConfig(
-        temperature=0.8  # 🔥 Control randomness
+        prompt,
+        generation_config=genai.types.GenerationConfig(
+            temperature=temperature,  # 🔥 Control randomness
+            top_p=top_p               # 🎯 Nucleus sampling
+        )
     )
-)
 
-    # Log token usage
-    log_usage(resp, tag="one-shot")
+    # Log token usage with temp & top_p
+    try:
+        usage = getattr(resp, "usage_metadata", None)
+        if usage:
+            prompt_tokens = usage.prompt_token_count
+            cand_tokens   = usage.candidates_token_count
+            total_tokens  = usage.total_token_count
+            msg = (f"[{tag}] Tokens → prompt:{prompt_tokens} "
+                   f"completion:{cand_tokens} total:{total_tokens} "
+                   f"| temp={temperature} top_p={top_p}")
+            print(msg)
+
+            os.makedirs("logs", exist_ok=True)
+            with open("logs/tokens.log", "a", encoding="utf-8") as fh:
+                fh.write(msg + "\n")
+    except Exception as e:
+        print(f"⚠️ Token log error: {e}")
 
     # Extract & print
     raw = extract_text(resp)
@@ -105,6 +125,7 @@ def main():
         with open("evaluation/one_shot_latest_output_raw.txt", "w", encoding="utf-8") as f:
             f.write(raw)
         print("Saved raw → evaluation/one_shot_latest_output_raw.txt")
+
 
 if __name__ == "__main__":
     main()

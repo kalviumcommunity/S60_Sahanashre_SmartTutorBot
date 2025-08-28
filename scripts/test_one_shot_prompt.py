@@ -1,6 +1,7 @@
 import os, json, re
 from dotenv import load_dotenv
 import google.generativeai as genai
+from google.generativeai.types import FunctionDeclaration, Tool
 
 # ---------- Setup ----------
 load_dotenv()
@@ -17,13 +18,22 @@ REQ_KEYS = {
     "follow_up_recommendations","references","estimated_time_minutes"
 }
 
+# ---------- Example Function ----------
+def get_weather(city: str, unit: str = "C"):
+    """Dummy weather lookup"""
+    return {
+        "city": city,
+        "unit": unit,
+        "forecast": "Sunny",
+        "temperature": 28 if unit == "C" else 82
+    }
+
 # ---------- Helpers ----------
 def read(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.read().strip()
 
 def extract_text(resp):
-    """Extract raw text from Gemini response."""
     try:
         if hasattr(resp, "text") and resp.text:
             return resp.text.strip()
@@ -35,93 +45,110 @@ def extract_text(resp):
         return str(resp)
 
 def clean_to_json(text: str) -> str:
-    """Strip fences & get last JSON object."""
     t = text.strip()
     if t.startswith("```"):
-        # remove markdown code fences
         t = re.sub(r"^```[a-zA-Z]*\n", "", t).strip()
         t = re.sub(r"```$", "", t).strip()
     m = re.search(r"\{.*\}\s*$", t, re.DOTALL)
     return m.group(0) if m else t
-
-def log_usage(resp, tag="one-shot"):
-    """Log token usage to console + file."""
-    try:
-        usage = getattr(resp, "usage_metadata", None)
-        if not usage:
-            return
-        prompt = usage.prompt_token_count
-        cand   = usage.candidates_token_count
-        total  = usage.total_token_count
-
-        msg = f"[{tag}] Tokens → prompt:{prompt} completion:{cand} total:{total}"
-        print(msg)
-
-        os.makedirs("logs", exist_ok=True)
-        with open("logs/tokens.log", "a", encoding="utf-8") as fh:
-            fh.write(msg + "\n")
-    except Exception as e:
-        print(f"⚠️ Token log error: {e}")
 
 # ---------- Main ----------
 def main():
     system = read("prompts/system_prompt_one_shot.txt")
     user   = read("prompts/user_prompt_one_shot.txt")
 
-    # Updated prompt → force JSON with required keys
-    schema_hint = f"""
-    Return your answer strictly as JSON with the following keys:
-    {sorted(list(REQ_KEYS))}
-    Do not add explanations outside JSON.
-    """
+    prompt = f"{system}\n\n# New Task\n{user}"
 
-    prompt = f"{system}\n\n# New Task\n{user}\n\n{schema_hint}"
-
-    # Define parameters
-    temperature = 0.3  # lower temp → more deterministic JSON
-    top_p = 0.9
-    top_k = 40
-    tag = "one-shot"
+    # ✅ Correct function schema
+    tools = [
+        Tool(
+            function_declarations=[
+                FunctionDeclaration(
+                    name="get_weather",
+                    description="Get the weather forecast for a given city",
+                    parameters={
+                        "type": "object",
+                        "properties": {
+                            "city": {
+                                "type": "string",
+                                "description": "City name"
+                            },
+                            "unit": {
+                                "type": "string",
+                                "enum": ["C", "F"],
+                                "description": "Temperature unit"
+                            }
+                        },
+                        "required": ["city"]
+                    }
+                )
+            ]
+        )
+    ]
 
     resp = model.generate_content(
         prompt,
+        tools=tools,
         generation_config=genai.types.GenerationConfig(
-            temperature=temperature,
-            top_p=top_p,
-            top_k=top_k,
-            stop_sequences=None   # ❌ remove this, it was cutting JSON early
+            temperature=0.3,
+            top_p=0.9,
+            top_k=40
         )
     )
 
-    # Extract raw text
+    print("\n=== RAW MODEL RESPONSE ===\n")
+    print(resp)
+
+    # Check if model requested function call
+    fn_call = None
+    try:
+        fn_call = resp.candidates[0].content.parts[0].function_call
+    except:
+        pass
+
+    if fn_call:
+        fn_name = fn_call.name
+        args = json.loads(fn_call.args)
+        print(f"\n📞 Model requested function call: {fn_name} with args {args}")
+
+        if fn_name == "get_weather":
+            result = get_weather(**args)
+            print("\n✅ Function executed. Result:", result)
+
+            # Send result back to model for final response
+            followup = model.generate_content(
+                [{"role": "model", "parts": [result]}]
+            )
+            print("\n=== FINAL MODEL RESPONSE ===\n")
+            print(followup.text)
+            return
+
+    # Fallback → structured JSON response
     raw = extract_text(resp)
     print("\n=== RAW MODEL TEXT (one-shot) ===\n")
     print(raw)
 
-    # Try parsing JSON
     try:
         text = clean_to_json(raw)
         data = json.loads(text)
 
-        # 🔒 Ensure schema safety → add missing keys as None
         for k in REQ_KEYS:
             if k not in data:
                 data[k] = None
 
-        # Save structured JSON
         os.makedirs("evaluation", exist_ok=True)
         with open("evaluation/one_shot_latest_output.json", "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
         print("\n✅ Parsed JSON successfully.")
         print("Saved → evaluation/one_shot_latest_output.json")
-
     except Exception as e:
         print("\n⚠️ JSON parse failed:", e)
         os.makedirs("evaluation", exist_ok=True)
         with open("evaluation/one_shot_latest_output_raw.txt", "w", encoding="utf-8") as f:
             f.write(raw)
         print("Saved raw → evaluation/one_shot_latest_output_raw.txt")
+
 
 if __name__ == "__main__":
     main()

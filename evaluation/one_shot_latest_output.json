@@ -2,73 +2,84 @@
   "topic": "Newton's Second Law",
   "grade_level": "9",
   "learning_objective": "Understand and apply Newton's Second Law of Motion (F=ma) to solve problems involving force, mass, and acceleration.",
-  "lesson_summary": "Newton's Second Law describes the relationship between force, mass, and acceleration.  It states that the net force acting on an object is equal to the product of its mass and acceleration. We'll explore how to calculate force, mass, or acceleration given the other two.",
+  "lesson_summary": "Newton's Second Law states that the force acting on an object is equal to its mass times its acceleration (F=ma).  This means a larger force causes greater acceleration, and a larger mass requires a larger force for the same acceleration. We'll explore how to use this equation in various scenarios.",
   "key_points": [
-    "Newton's Second Law: F = ma (Force = mass x acceleration)",
-    "Force (F) is measured in Newtons (N)",
-    "Mass (m) is measured in kilograms (kg)",
-    "Acceleration (a) is measured in meters per second squared (m/s²)",
-    "Net force considers all forces acting on an object; if forces are in opposite directions, subtract them."
+    "Force (F): A push or pull measured in Newtons (N)",
+    "Mass (m): The amount of matter in an object, measured in kilograms (kg)",
+    "Acceleration (a): The rate of change of velocity, measured in meters per second squared (m/s²)",
+    "F = ma:  Force equals mass times acceleration"
   ],
   "worked_examples": [
     {
       "id": 1,
-      "problem": "A 2 kg ball is pushed with a force of 10 N. What is its acceleration?",
+      "problem": "A 10 kg object accelerates at 2 m/s². What is the net force acting on it?",
       "solution_steps": [
-        "Write down the known values: F = 10 N, m = 2 kg",
+        "Write down the known values: m = 10 kg, a = 2 m/s²",
         "Use Newton's Second Law: F = ma",
-        "Rearrange the formula to solve for acceleration: a = F/m",
-        "Substitute the values and calculate: a = 10 N / 2 kg = 5 m/s²"
+        "Substitute the values: F = (10 kg)(2 m/s²)",
+        "Calculate: F = 20 N"
       ],
-      "final_answer": "5 m/s²"
+      "final_answer": "20 N"
     },
     {
       "id": 2,
-      "problem": "A 5 kg object accelerates at 3 m/s². What is the net force acting on it?",
+      "problem": "A 50 N force acts on a 2 kg object. What is its acceleration?",
       "solution_steps": [
-        "Write down the known values: m = 5 kg, a = 3 m/s²",
-        "Use Newton's Second Law: F = ma",
-        "Substitute the values and calculate: F = 5 kg * 3 m/s² = 15 N"
+        "Write down the known values: F = 50 N, m = 2 kg",
+        "Rearrange Newton's Second Law to solve for acceleration: a = F/m",
+        "Substitute the values: a = 50 N / 2 kg",
+        "Calculate: a = 25 m/s²"
       ],
-      "final_answer": "15 N"
+      "final_answer": "25 m/s²"
     }
   ],
   "practice_problems": [
     {
       "id": 1,
-      "question": "A 10 kg box is pushed with a force of 25 N. Calculate its acceleration.",
+      "question": "A 5 kg ball is rolling at a constant velocity. What is the net force acting on it?",
       "difficulty": "easy",
       "hints": [
-        "Use F=ma"
+        "Remember, constant velocity means no acceleration."
       ],
-      "solution": "2.5 m/s²"
+      "solution": "0 N (No acceleration means no net force)"
     },
     {
       "id": 2,
-      "question": "A car with a mass of 1000 kg accelerates at 2 m/s². What is the net force acting on it?",
+      "question": "A 20 N force is applied to a 4 kg object. Calculate its acceleration.",
       "difficulty": "medium",
       "hints": [
-        "Remember the units"
+        "Use the formula F = ma and solve for 'a'."
       ],
-      "solution": "2000 N"
+      "solution": "5 m/s²"
     }
   ],
   "assessment_quiz": [
     {
       "id": 1,
-      "question": "If the mass of an object increases, and the force remains constant, what happens to its acceleration?",
+      "question": "If you double the force applied to an object, what happens to its acceleration?",
       "options": [
-        "A) Increases",
-        "B) Decreases",
-        "C) Stays the same",
-        "D) Becomes zero"
+        "A) It doubles",
+        "B) It halves",
+        "C) It stays the same",
+        "D) It becomes zero"
       ],
-      "answer": "B) Decreases"
+      "answer": "A) It doubles"
+    },
+    {
+      "id": 2,
+      "question": "A heavier object requires a ________ force to achieve the same acceleration as a lighter object.",
+      "options": [
+        "A) smaller",
+        "B) larger",
+        "C) equal",
+        "D) zero"
+      ],
+      "answer": "B) larger"
     }
   ],
   "follow_up_recommendations": [
     "Explore examples of Newton's Second Law in everyday life",
-    "Practice more problems with varying levels of difficulty"
+    "Practice more problems with varying force, mass, and acceleration"
   ],
   "references": [
     "N/A"

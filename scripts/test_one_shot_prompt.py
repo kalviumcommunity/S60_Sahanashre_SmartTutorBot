@@ -68,68 +68,60 @@ def main():
     system = read("prompts/system_prompt_one_shot.txt")
     user   = read("prompts/user_prompt_one_shot.txt")
 
-    prompt = f"{system}\n\n# New Task\n{user}"
+    # Updated prompt → force JSON with required keys
+    schema_hint = f"""
+    Return your answer strictly as JSON with the following keys:
+    {sorted(list(REQ_KEYS))}
+    Do not add explanations outside JSON.
+    """
 
-    # define parameters
-    temperature = 0.8
+    prompt = f"{system}\n\n# New Task\n{user}\n\n{schema_hint}"
+
+    # Define parameters
+    temperature = 0.3  # lower temp → more deterministic JSON
     top_p = 0.9
-    top_k=40       
+    top_k = 40
     tag = "one-shot"
-    stop_sequences=["}"]   
 
     resp = model.generate_content(
         prompt,
         generation_config=genai.types.GenerationConfig(
-            temperature=temperature,  # 🔥 Control randomness
-            top_p=top_p,               # 🎯 Nucleus sampling
-            top_k=top_k,              # 🔥 Top-K sampling
-            stop_sequences=stop_sequences   # 🔥 stop generation after closing JSON
+            temperature=temperature,
+            top_p=top_p,
+            top_k=top_k,
+            stop_sequences=None   # ❌ remove this, it was cutting JSON early
         )
     )
 
-    # Log token usage with temp & top_p
-    try:
-        usage = getattr(resp, "usage_metadata", None)
-        if usage:
-            prompt_tokens = usage.prompt_token_count
-            cand_tokens   = usage.candidates_token_count
-            total_tokens  = usage.total_token_count
-            msg = (f"[{tag}] Tokens → prompt:{prompt_tokens} "
-                   f"completion:{cand_tokens} total:{total_tokens} "
-                   f"| temp={temperature} top_p={top_p} top_k={top_k} stop_sequences={stop_sequences}")
-            print(msg)
-
-            os.makedirs("logs", exist_ok=True)
-            with open("logs/tokens.log", "a", encoding="utf-8") as fh:
-                fh.write(msg + "\n")
-    except Exception as e:
-        print(f"⚠️ Token log error: {e}")
-
-    # Extract & print
+    # Extract raw text
     raw = extract_text(resp)
     print("\n=== RAW MODEL TEXT (one-shot) ===\n")
     print(raw)
 
-    # Clean + save
-    text = clean_to_json(raw)
-    os.makedirs("evaluation", exist_ok=True)
-
+    # Try parsing JSON
     try:
+        text = clean_to_json(raw)
         data = json.loads(text)
-        missing = sorted(list(REQ_KEYS - set(data.keys())))
-        extra   = sorted(list(set(data.keys()) - REQ_KEYS))
-        print("\n✅ Parsed JSON. Missing keys:", missing, " Extra keys:", extra)
 
+        # 🔒 Ensure schema safety → add missing keys as None
+        for k in REQ_KEYS:
+            if k not in data:
+                data[k] = None
+
+        # Save structured JSON
+        os.makedirs("evaluation", exist_ok=True)
         with open("evaluation/one_shot_latest_output.json", "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
+        print("\n✅ Parsed JSON successfully.")
         print("Saved → evaluation/one_shot_latest_output.json")
+
     except Exception as e:
         print("\n⚠️ JSON parse failed:", e)
+        os.makedirs("evaluation", exist_ok=True)
         with open("evaluation/one_shot_latest_output_raw.txt", "w", encoding="utf-8") as f:
             f.write(raw)
         print("Saved raw → evaluation/one_shot_latest_output_raw.txt")
-
 
 if __name__ == "__main__":
     main()
